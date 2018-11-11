@@ -1,6 +1,6 @@
 from dal import autocomplete
 from django.shortcuts import render
-from users.models import Category, Product
+from products.models import Category, Product
 
 
 

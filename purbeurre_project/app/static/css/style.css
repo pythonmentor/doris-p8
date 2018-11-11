@@ -1,0 +1,11 @@
+/* #############################################
+###### Template REGISTER & CONNECTION #########
+############################################### */
+
+body {
+  background-color: lightgrey;
+}
+
+.home-pic {
+  background-image: url('app/img/olenka-kotyk-25355-unsplash.jpg');
+}
