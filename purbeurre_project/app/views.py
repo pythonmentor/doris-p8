@@ -5,4 +5,6 @@ from django.template import loader
 def home(request):
     """ Get the homepage """
     template = loader.get_template('app/index.html')
+
+    #return template.render(request, context)
     return HttpResponse(template.render(request=request))

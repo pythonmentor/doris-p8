@@ -3,7 +3,7 @@
 import requests
 import json
 from django.core.management.base import BaseCommand, CommandError
-from .models import Category, Product
+from products.models import Category, Product
 
 help = 'Import data from openfoodfacts API to the app database'
 

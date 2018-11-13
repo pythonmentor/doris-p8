@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'products',
     'users',
     'search',
+    'django_select2',
 ]
 
 MIDDLEWARE = [

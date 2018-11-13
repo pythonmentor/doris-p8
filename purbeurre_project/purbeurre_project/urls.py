@@ -23,5 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app.urls', namespace='app')),
     path('', include('users.urls', namespace='users')),
-    # path('', include('search.urls', namespace='search'))
+    path('', include('search.urls', namespace='search'))
 ]
