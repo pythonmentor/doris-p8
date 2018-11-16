@@ -12,7 +12,7 @@ class Product(models.Model):
     nutrition_grade = models.CharField(max_length=1)
     rep_nutritionnel = models.URLField()
     image = models.URLField()
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="related category")
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="related category", related_name='products')
     users = models.ManyToManyField(User, verbose_name="related favorites", related_name='favorite_products', through='Favorite', through_fields=('substitute','user')) #through to link to intermediary table
     def __str__(self):
         return str(self.name_prod)

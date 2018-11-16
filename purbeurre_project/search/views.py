@@ -1,29 +1,50 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from products.models import Category, Product
+import random
+import json
+from search.forms import SearchForm
+
 
 
 
 #@login_required(login_url='/connection/')
-class QueryAutocomplete():
-    def search_function(request):
-        """ Get the user input of products and search unhealthy propositions in
-         the database """
-        query = request.GET.get('query')
-        product_name = Product.objects.filter(
-            nutrition_grade__range = ('d','e')).filter(
-            name_prod__icontains = query).values_list(
-            'name_prod', 'image', named=True)
+def search_function(request):
+    """ Get the user input of products and search unhealthy propositions in
+     the database """
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            query = form.cleaned_data['product'] #field from my form
 
-    # def results_function(request):
-    #     """ Return healthy propositions to the user input """
+            id_cat = Product.objects.filter(
+                nutrition_grade__range = ('d','e'), name_prod__icontains = query).values(
+                'category')
+            get_cat = {
+                'category': id_cat
+            }
 
-        title = "Résultats pour la requête %s"%query
-        context = {
-            'product_name': product_name,
-        }
-        print(context)
-        if not product_name.exists():
-            title = 'Désolé, pas de résultats pour cette recherche'
+            #transform the request into list to extract category number
+            get_cat_list = list(get_cat['category'])
+            selection = random.choice(get_cat_list)
+            cat = selection.get('category')
+            print('category', cat)
 
+            #request to get healthy products from the foreign key
+            healthy_request = Product.objects.filter(
+                nutrition_grade__range = ('a','b')). filter(
+                category = cat).values(
+                'name_prod', 'image'
+                )
+            print('requete', healthy_request)
+            title = "Résultats pour la requête %s"%query
+            #turn the results into a list to display in frontend
+            context = {
+                'name_prod': 'name_prod',
+                'image': 'image'
+            }
 
-        return render(request, 'search/search.html', context)
+            if not id_cat.exists():
+                title = 'Désolé, pas de résultats pour cette recherche'
+
+            return render(request, 'search/search.html', context)
