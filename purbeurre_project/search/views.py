@@ -22,15 +22,30 @@ def search_function(request):
 
         return HttpResponse(data, mimetype)
 
-# def get_results(request):
-#     """ Get and display healthy results """
-#     if request.method == 'GET':
-#         # choices = request.GET.get('search','None')
-#         print('ok')
-#         # unhealthy = search_function()
-#         # print('hello')
-#         # test = unhealthy.Category.all()
-#         #
-#         # cat = print(test)
-#
-#         return render(request, 'search/search.html')
+    if request.method == 'POST':
+        choice = request.POST.get('txtSearch')
+        for item in Product.objects.filter(name_prod=choice):
+            cat = item.category
+
+        healthy_prod = Product.objects.filter(
+            category = cat, nutrition_grade__in = ('a','b','c'))
+
+        title = "[ Résultats pour la recherche: %s ]"%choice
+        choice_image = item.image
+        products = []
+
+        for item in healthy_prod:
+            product = {
+                'name': item.name_prod,
+                'grade': item.nutrition_grade,
+                'image': item.image
+            }
+            products.append(product)
+
+        results = {
+            'title': title,
+            'choice_image': choice_image,
+            'products': products
+        }
+
+        return render(request, 'search/search.html', results)

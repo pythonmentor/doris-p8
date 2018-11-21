@@ -59,22 +59,16 @@
     </nav>
 
 
-    {% block header %}{% endblock %}
+    {% block header %}
+    {% endblock %}
 
+    {% block corps %}
+    {% endblock %}
 
-    <section class="bg-primary" id="about">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            {% block corps %}{% endblock %}
-          </div>
-        </div>
-      </div>
-    </section>
+    {% block accueil %}
+    {% endblock %}
 
-    {% block accueil %}{% endblock %}
-
-    <footer id="contact">
+    <footer>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">

@@ -1,7 +1,28 @@
 {% extends 'app/base.html' %}
 
 {% block header %}
+<div class="jumbotron text-center text-white mini-header" style="background-image:url('{{ choice_image }}')">
+  <img class="img-responsive">
+  <div class="container my-auto bg-title">
+    <h2>
+      {{ title }}
+    </h2>
+  </div>
+</div>
+{% endblock %}
 
-    {% include 'search/list.html'%}
 
+{% block corps %}
+<section class="single-pg">
+  <div class="container title-single-pg">
+    <h2>
+      Vous pouvez remplacer cet aliment par :
+    </h2>
+    <div class="row">
+      <div class="col-lg-12 mx-auto">
+       {% include 'search/list.html'%}
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}

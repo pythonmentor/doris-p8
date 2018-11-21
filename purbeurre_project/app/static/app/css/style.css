@@ -5,3 +5,79 @@
 body {
   background-color: lightgrey;
 }
+
+.home-pic {
+  background-image: url('app/img/olenka-kotyk-25355-unsplash.jpg');
+}
+
+/* #############################################
+###### Template ACCUEIL/INDEX         #########
+############################################### */
+.searchbox {
+  display: contents;
+}
+
+/* #############################################
+###### Template RESULTATS             #########
+############################################### */
+
+.mini-header {
+  margin-top: 4em !important;
+  background-color: transparent !important;
+}
+
+.bg-title {
+  background-color: #C45525;
+}
+
+.single-pg {
+  background-color: #DE9440;
+}
+
+.title-single-pg h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 25px;
+}
+
+.result-item {
+  float: left;
+}
+
+.result-item span {
+  font-size: 20px;
+  color: white;
+  background-color: #86EBE6;
+  border-radius: 50%;
+  width: 30px;
+  display: inline-block;
+  height: 30px;
+  text-transform: uppercase;
+  text-align: center;
+  position: absolute;
+  z-index: 1;
+  right: 0px;
+  top: -15px;
+}
+
+.result-item figure {
+  height: 250px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.result-item img{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.result-item h3 {
+  font-size: 18px;
+}
+
+.result-item figcaption {
+  height: 160px;
+}
