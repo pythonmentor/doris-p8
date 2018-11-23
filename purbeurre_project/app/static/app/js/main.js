@@ -15,17 +15,17 @@ jQuery(document).ready(function() {
           success: function(data) {
             console.log(data.validation);
             console.log('success');
-            if (data.validation === "pass") {
+            if (data.validation === "save products") {
               console.log('pass');
               $('#btn_sauv').addClass("<button class='btn btn-success'>" + "Sauvegardé" + "</button>");
             }
-            else if (data.validation === "fail") {
+            else if (data.validation === "delete products") {
               $('#btn_sauv').removeClass("<button class='btn btn-success'>" + "Sauvegardé" + "</button>");
               console.log('fail');
             }
           },
           error: function(data) {
-            alert("error: " + data.status + " erreur dans l'application, veuillez effectuer une nouvelle recherche");
+            alert("error: " + data.status + " : erreur dans l'application, veuillez effectuer une nouvelle recherche");
             }
         });
     });

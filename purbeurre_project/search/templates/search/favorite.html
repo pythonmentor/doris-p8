@@ -1,0 +1,28 @@
+{% extends 'app/base.html' %}
+
+{% block header %}
+<div class="jumbotron text-center text-white mini-header">
+  <img class="img-responsive">
+  <div class="container my-auto bg-title">
+    <h2>
+      Mes Favoris
+    </h2>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block corps %}
+<section class="single-pg">
+  <div class="container title-single-pg">
+    <h2>
+      Vous pouvez remplacer vos produits gras par :
+    </h2>
+    <div class="row">
+      <div class="col-lg-12 mx-auto">
+       {% include 'search/list_favorite.html'%}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
