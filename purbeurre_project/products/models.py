@@ -22,4 +22,4 @@ class Favorite(models.Model):
     substitute = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name="related substitute", related_name='favorite_substitute',)
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="related user")
     def __str__(self):
-        return f"{substitute} - {user}" #used en admin
+        return f"{self.substitute} - {self.user}" #used en admin
