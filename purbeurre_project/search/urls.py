@@ -7,5 +7,5 @@ app_name = 'search'
 urlpatterns = [
     path('', views.search_function, name='search'),
     path('record_favorite', views.save_product, name='save'),
-    path('remove_favorite', views.remove_product, name='remove')
+    # path('remove_favorite', views.remove_product, name='remove')
 ]

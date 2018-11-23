@@ -91,7 +91,7 @@ def save_product(request):
         return HttpResponse(json.dumps(save_event), content_type="application/json")
 
 # @login_required
-def remove_product(request):
-    """ Delete favorite products from database """
-    if request.method == 'POST':
-        
+# def remove_product(request):
+#     """ Delete favorite products from database """
+#     if request.method == 'POST':
+#         pass
