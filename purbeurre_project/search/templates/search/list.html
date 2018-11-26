@@ -12,7 +12,7 @@
           {% csrf_token %}
           <input type="hidden"  name="id_healthy" value="{{ item.id }}"/>
           <input type="hidden"  name="id_unhealthy" value="{{ choice_id }}"/>
-          <button id="btn_sauv" type="submit" name="button" role="button" class="btn btn-primary">
+          <button id="btn_sauv" type="submit" name="button" role="button" class="btn btn_save btn-primary">
             Sauvegarder
           </button>
         </form>

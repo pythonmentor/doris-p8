@@ -12,7 +12,7 @@
         {% csrf_token %}
         <input type="hidden"  name="delete_favorite" value="{{ fav.id_substitute }}"/>
         <input type="hidden"  name="delete_unhealthy" value="{{ fav.id_product }}"/>
-        <button id="btn_sauv" type="submit" name="button" role="button" class="btn btn-primary">
+        <button id="btn_sauv" type="submit" name="button" role="button" class="btn btn_delete btn-primary">
           Supprimer
         </button>
       </form>

@@ -81,3 +81,7 @@ body {
 .result-item figcaption {
   height: 160px;
 }
+
+.test {
+  background-color: green;
+}
