@@ -1,0 +1,29 @@
+{% extends 'app/base.html' %}
+
+{% block header %}{% for item in details %}
+ <div class="jumbotron text-center text-white mini-header" style="background-image:url('{{ item.image }}')">
+  <img class="img-responsive">
+  <div class="container my-auto bg-title">
+    <h2>
+      {{ item.name }}
+    </h2>
+  </div>
+</div>
+{% endfor %}{% endblock %}
+
+
+{% block corps %}{% for item in details %}
+ <section class="single-pg">
+  <div class="container">
+    <p>
+      {{ item.grade }}
+    </p>
+    <img src="{{ item.rep }}" alt="{{ item.name }}">
+    <div class="row">
+      <div class="col-lg-12 mx-auto">
+       truc à mettre
+      </div>
+    </div>
+  </div>
+</section>
+{% endfor %}{% endblock %}

@@ -34,7 +34,7 @@ def search_function(request):
         healthy_prod = Product.objects.filter(
             category = cat, nutrition_grade__in = ('a','b','c')).order_by(
             'nutrition_grade'
-            )
+            )[:6]
 
         #create variable with unhealthy products info to render in the template
         title = "[ Résultats pour la recherche: %s ]"%choice
@@ -65,9 +65,30 @@ def search_function(request):
         return render(request, 'search/search.html', results)
 
 
+def display_details(request, id_healthy):
+    """ Display the details about a product on a dedicated page """
+    if request.method == 'GET':
+
+        details = []
+        for item in Product.objects.filter(id=id_healthy):
+            details_list = {
+                'name' : item.name_prod,
+                'image': item.image,
+                'grade': item.nutrition_grade,
+                'rep': item.rep_nutritionnel
+            }
+            details.append(details_list)
+
+            results = {
+                'details' : details
+            }
+
+        return render(request, 'search/details.html', results)
+
+
 @login_required
 def save_product(request):
-    """ Save favorite products and their substitutes """
+    """ Save favorite products and their substitutes through Search page"""
     #get the id of the healthy product chosen by the user and the unhealthy product and save it in Favorite table
     if request.method == 'POST':
         id_favorite = request.POST.get('id_healthy')
@@ -82,7 +103,6 @@ def save_product(request):
             save_event = {
                 "validation" : "exists",
             }
-            print("ça existe dejaaaaaaa")
 
         elif favorite == False:
             favorite = Favorite(
@@ -100,7 +120,7 @@ def save_product(request):
 
 @login_required
 def remove_product(request):
-    """ Delete favorite products from database """
+    """ Delete favorite products from database through Favorite page """
     #get the id of the healthy product chosen by the user and remoce it from database
     #créer la vue Remove en mettant en gabarit les id des produits healthy et unhealthy
     if request.method == 'POST':
@@ -126,7 +146,7 @@ def remove_product(request):
 
 
 def favorite_display(request):
-    """ Display the favorite products for each user """
+    """ Display the favorite products for each user through Favorite page """
     if request.method == 'GET':
         #get the information to display from Product table filtered by user
         user = request.user
@@ -158,12 +178,3 @@ def favorite_display(request):
         }
 
         return render(request, 'search/favorite.html', results)
-
-
-def display_details(request, product_id):
-    """ Display the details about a product"""
-
-    #instanciate search_function to use the outputs in this page : items ans their attributes
-    #search_function = search_function()
-
-    return render(request, 'product/details/<p>.html')

@@ -4,10 +4,14 @@
   <div>
     <span>{{ fav.fav_grade }}</span>
     <figure class="thumbnail">
-      <img src="{{ fav.fav_image }}" alt="{{ fav.fav_product }}">
+      <a href="{% url 'search:details' fav.id_substitute %}">
+        <img src="{{ fav.fav_image }}" alt="{{ fav.fav_product }}">
+      </a>
     </figure>
     <figcaption class="caption">
-      <h3>{{ fav.fav_product }}</h3>
+      <a href="{% url 'search:details' fav.id_substitute %}">
+        <h3>{{ fav.fav_product }}</h3>
+      </a>
       <form method="POST" action='{% url "search:remove" %}' class="ajax_delete_product">
         {% csrf_token %}
         <input type="hidden"  name="delete_favorite" value="{{ fav.id_substitute }}"/>

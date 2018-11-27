@@ -9,5 +9,5 @@ urlpatterns = [
     path('record_favorite', views.save_product, name='save'),
     path('remove_favorite', views.remove_product, name='remove'),
     path('favorite', views.favorite_display, name='favorite'),
-    path('<int:product_id>/', views.display_details, name='details')
+    path('details/<int:id_healthy>/', views.display_details, name='details')
 ]

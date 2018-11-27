@@ -4,10 +4,14 @@
     <div>
       <span>{{ item.grade }}</span>
       <figure class="thumbnail">
-        <img src="{{ item.image }}" alt="{{ item.name }}">
+        <a href="{% url 'search:details' item.id %}">
+          <img src="{{ item.image }}" alt="{{ item.name }}">
+        </a>
       </figure>
       <figcaption class="caption">
-        <h3>{{ item.name }}</h3>
+        <a href="{% url 'search:details' item.id %}">
+          <h3>{{ item.name }}</h3>
+        </a>
         <form method="POST" action='{% url "search:save" %}' class="ajax_save_product">
           {% csrf_token %}
           <input type="hidden"  name="id_healthy" value="{{ item.id }}"/>

@@ -73,7 +73,7 @@ def connection(request):
     if request.method == "POST":
         form = ConnectionForm(request.POST or None)
         if form.is_valid():
-            username = form.cleaned_data['username']
+            username = form.cleaned_data['email']
             password = form.cleaned_data['password']
             user = authenticate(username=username, password=password)
             if user:  # Si l'objet renvoyé n'est pas None
@@ -92,7 +92,37 @@ def deconnection(request):
     return redirect(reverse(connection))
 
 
-@login_required(login_url='/connection/')
+@login_required
 def myaccount(request):
     """  Access the account """
-    return render(request, 'my-account.html')
+    if request.method == 'GET':
+        user_logged = request.user
+
+        accounts = []
+        for people in User.objects.filter(username=request.user):
+            id_people = people.id
+            for item in User.objects.filter(id=id_people):
+                users_info = {
+                    'name' : item.first_name,
+                    'email' : item.username
+                }
+                accounts.append(users_info)
+
+                results = {
+                    'accounts' : accounts
+                }
+
+            return render(request, 'account.html', results)
+
+# people
+# {'date_joined': datetime.datetime(2018, 11, 27, 10, 25, 47, 648588, tzinfo=<UTC>),
+#  'email': 'doris.atchikiti@gmail.com',
+#  'first_name': 'do',
+#  'id': 2,
+#  'is_active': True,
+#  'is_staff': False,
+#  'is_superuser': False,
+#  'last_login': datetime.datetime(2018, 11, 27, 10, 25, 47, 905986, tzinfo=<UTC>),
+#  'last_name': '',
+#  'password': 'pbkdf2_sha256$120000$IcyrilQsBKPh$DXk0PbcojUE7CBwyqBJ67sHNFY8jJ93y2P+XB348kOA=',
+#  'username': 'doris.atchikiti@gmail.com'}

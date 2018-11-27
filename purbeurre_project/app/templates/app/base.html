@@ -42,17 +42,23 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">Barre de recherche</a>
+              {% include 'search/search_nav.html' %}
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Mon compte</a>
+              <a class="nav-link js-scroll-trigger" href="{% url 'users:account' %}">
+                <i class="fas fa-user-circle"></i>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">Mes aliments</a>
+              <a class="" href="{% url 'search:favorite' %}">
+                <img class="carrot" src="{% static 'app/img/noun_Carrot_29691.png' %}" alt="mes favoris">
+              </a>
             </li>
+            {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contact">Déconnexion</a>
             </li>
+            {% endif %}
           </ul>
         </div>
       </div>
