@@ -12,18 +12,39 @@ body {
 .searchbox {
   display: contents;
 }
-
+.colette {
+  width: 46%;
+}
+.remy {
+  width: 65%;
+}
+footer {
+  margin: 8px;
+}
 /* #############################################
 ###### BARRE DE NAVIGATION            #########
 ############################################### */
-
+.bar_nav {
+  margin-left: 58% !important;
+}
+.logo_pb {
+  width: 4%;
+  padding: 4px;
+}
 .fa-user-circle {
     font-size: 24px;
 }
-.carrot {
+.carrot-nav {
   width: 8%;
+}
+.carrot {
+  width: 46%;
   padding: 0;
 }
+.fa-sign-out-alt {
+  font-size: 18px;
+}
+
 
 /* #############################################
 ###### Template RESULTATS             #########
@@ -90,10 +111,9 @@ body {
   height: 160px;
 }
 
-.test {
-  background-color: green;
+.fa-save {
+  font-size: 18px;
 }
-
 
 /* #############################################
 ###### Template ACCOUNT             #########

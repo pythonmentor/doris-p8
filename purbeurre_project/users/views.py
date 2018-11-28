@@ -2,7 +2,7 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import ConnectionForm
 from django import forms
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
@@ -86,10 +86,11 @@ def connection(request):
     return render(request, 'connection.html', locals())
 
 
-def deconnection(request):
-    """  Logout the user """
-    logout(request)
-    return redirect(reverse(connection))
+# def logout_view(request):
+#     """  Logout the user """
+#     if request.method == "GET":
+#         logout(request)
+#         return HttpResponseRedirect(reverse('accueil/'))
 
 
 @login_required
@@ -113,16 +114,3 @@ def myaccount(request):
                 }
 
             return render(request, 'account.html', results)
-
-# people
-# {'date_joined': datetime.datetime(2018, 11, 27, 10, 25, 47, 648588, tzinfo=<UTC>),
-#  'email': 'doris.atchikiti@gmail.com',
-#  'first_name': 'do',
-#  'id': 2,
-#  'is_active': True,
-#  'is_staff': False,
-#  'is_superuser': False,
-#  'last_login': datetime.datetime(2018, 11, 27, 10, 25, 47, 905986, tzinfo=<UTC>),
-#  'last_name': '',
-#  'password': 'pbkdf2_sha256$120000$IcyrilQsBKPh$DXk0PbcojUE7CBwyqBJ67sHNFY8jJ93y2P+XB348kOA=',
-#  'username': 'doris.atchikiti@gmail.com'}

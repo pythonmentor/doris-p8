@@ -1,6 +1,6 @@
 <div class="detail-separator">
   <form class="form-group ui-widget col-md-6 col-md-offset-3 text-center searchbox" action="{% url 'search:search' %}" method="POST" accept-charset="utf-8" name="search_input">
     {% csrf_token %}
-    <input id="txtSearch" name="txtSearch" type="text" class="form-control" placeholder="Chercher">
+    <input name="txtSearch" type="text" class="form-control txtSearch" placeholder="Chercher">
   </form>
 </div>

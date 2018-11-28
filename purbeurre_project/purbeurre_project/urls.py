@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from users.views import myaccount, connection, deconnection, create_user
-from app.views import home, mentions 
+from users.views import myaccount, connection, create_user
+from app.views import home, mentions
 from search.views import search_function, save_product, remove_product, favorite_display, display_details
 
 urlpatterns = [
