@@ -6,6 +6,10 @@ body {
   background-color: lightgrey;
 }
 
+.auth-pg {
+  height: 100%;
+}
+
 /* #############################################
 ###### Template ACCUEIL/INDEX         #########
 ############################################### */
@@ -129,4 +133,12 @@ footer {
   text-align: center;
   background-color: #345A61;
   margin: 0 25% 0 25%;
+}
+
+/* #############################################
+###### Template RESULTATS             #########
+############################################### */
+
+.account-body {
+  height: 100%;
 }

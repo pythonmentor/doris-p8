@@ -5,7 +5,6 @@ from django import forms
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import logout
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.conf import settings
@@ -86,11 +85,10 @@ def connection(request):
     return render(request, 'connection.html', locals())
 
 
-# def logout_view(request):
-#     """  Logout the user """
-#     if request.method == "GET":
-#         logout(request)
-#         return HttpResponseRedirect(reverse('accueil/'))
+def logout_view(request):
+    """  Logout the user """
+    logout(request)
+    return HttpResponseRedirect('/accueil/')
 
 
 @login_required
