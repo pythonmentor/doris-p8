@@ -3,7 +3,7 @@
 ############################################### */
 
 body {
-  background-color: lightgrey;
+  background-color: #E8A75D;
 }
 
 .auth-pg {
@@ -116,7 +116,15 @@ footer {
 }
 
 .fa-save {
-  font-size: 18px;
+  font-size: 22px;
+  z-index: 1;
+  position: absolute;
+  left: 9%;
+  padding-top: 2%;
+}
+.btn_save {
+  width: 65%;
+  position: relative;
 }
 
 /* #############################################
@@ -141,4 +149,17 @@ footer {
 
 .account-body {
   height: 100%;
+}
+
+/* #############################################
+###### Template DETAILS               #########
+############################################### */
+
+.band {
+  background-color: green;
+  padding: 0 5%;
+}
+
+.detail-row {
+  margin-bottom: 8%;
 }

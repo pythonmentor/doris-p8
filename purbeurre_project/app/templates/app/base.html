@@ -50,12 +50,12 @@
                 <i class="fas fa-user-circle"></i>
               </a>
             </li>
+            {% if user.is_authenticated %}
             <li class="nav-item carrot-nav">
               <a class="" href="{% url 'search:favorite' %}">
                 <img class="carrot" src="{% static 'app/img/noun_Carrot_29691.png' %}" alt="mes favoris">
               </a>
             </li>
-            {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="{% url 'users:logout' %}">
                 <i class="fas fa-sign-out-alt"></i>

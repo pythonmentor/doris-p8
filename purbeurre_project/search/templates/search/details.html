@@ -15,15 +15,20 @@
 {% block corps %}{% for item in details %}
  <section class="single-pg">
   <div class="container">
-    <p>
-      {{ item.grade }}
-    </p>
-    <img src="{{ item.rep }}" alt="{{ item.name }}">
-    <div class="row">
-      <div class="col-lg-12 mx-auto">
-       truc à mettre
+    <div class="row detail-row">
+      <div class="col-lg-6 col-xs-12">
+        <img src="https://static.openfoodfacts.org/images/misc/nutriscore-{{ item.grade }}.svg">
+        </img>
+      </div>
+      <div class="col-lg-6 col-xs-12">
+        <img src="{{ item.rep }}" alt="{{ item.name }}">
       </div>
     </div>
+    <div class="row">
+      <div class="col-lg-12 mx-auto text-center">
+       <a class="band" href="{{ item.url }}"> Voir la fiche d'OpenFoodFacts
+       </a>
+      </div>
   </div>
 </section>
 {% endfor %}{% endblock %}

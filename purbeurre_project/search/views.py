@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from products.models import Category, Product, Favorite
 from django.contrib.auth.models import User
@@ -75,7 +75,8 @@ def display_details(request, id_healthy):
                 'name' : item.name_prod,
                 'image': item.image,
                 'grade': item.nutrition_grade,
-                'rep': item.rep_nutritionnel
+                'rep': item.rep_nutritionnel,
+                'url': item.url
             }
             details.append(details_list)
 

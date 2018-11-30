@@ -49,8 +49,9 @@ class Command(BaseCommand):
             nutrition_grade = data_product.get('nutrition_grades', None)
             rep_nutritionnel = data_product.get('image_nutrition_url', None)
             image = data_product.get('image_url', None)
+            url = data_product.get('url', None)
             category = Category.objects.get(name_cat=category)
-            if name_prod == None or nutrition_grade == None or rep_nutritionnel == None or image == None or category == None:
+            if name_prod == None or nutrition_grade == None or rep_nutritionnel == None or image == None or url == None or category == None:
                 continue
             else:
                 try:
@@ -59,6 +60,7 @@ class Command(BaseCommand):
                     nutrition_grade = nutrition_grade,
                     rep_nutritionnel = rep_nutritionnel,
                     image = image,
+                    url = url,
                     category = category
                     )
                     if created:
