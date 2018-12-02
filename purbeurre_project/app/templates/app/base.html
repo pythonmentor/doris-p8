@@ -26,6 +26,8 @@
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="{% static 'app/css/creative.min.css' %}" >
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans" type="text/css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Scope+One" type="text/css">
 
   </head>
 
@@ -53,7 +55,7 @@
             {% if user.is_authenticated %}
             <li class="nav-item carrot-nav">
               <a class="" href="{% url 'search:favorite' %}">
-                <img class="carrot" src="{% static 'app/img/noun_Carrot_29691.png' %}" alt="mes favoris">
+                <img class="carrot" src="{% static 'app/img/noun_Carrot_29691.svg' %}" alt="mes favoris">
               </a>
             </li>
             <li class="nav-item">

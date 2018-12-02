@@ -1,3 +1,17 @@
+body h1{
+  font-family: "Open Sans", sans-serif;
+}
+body h2{
+  font-family: "Open Sans", sans-serif;
+}
+body h3{
+  font-family: "Open Sans", sans-serif;
+}
+
+body p {
+  font-family: "Scope One", sans-serif;
+}
+
 /* #############################################
 ###### Template REGISTER & CONNECTION #########
 ############################################### */
@@ -22,8 +36,15 @@ body {
 .remy {
   width: 65%;
 }
+.contact {
+  background-color: #C45525;
+}
+.green-font {
+  color: #C45525;
+}
 footer {
-  margin: 8px;
+  padding: 8px;
+  background-color: #345A61;
 }
 /* #############################################
 ###### BARRE DE NAVIGATION            #########
@@ -64,7 +85,7 @@ footer {
 }
 
 .single-pg {
-  background-color: #DE9440;
+  background-color: white;
 }
 
 .title-single-pg h2 {
@@ -113,6 +134,28 @@ footer {
 
 .result-item figcaption {
   height: 160px;
+  padding: 15px 0 0 15px;
+  margin-bottom: 40px;
+}
+.box_colored {
+  background-color: #345A61;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 3%;
+}
+
+.box_colored:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.btn-position {
+  position: absolute;
+  bottom: 12%;
+}
+
+.btn-results {
+  background-color: #C45525;
+  color: white;
 }
 
 .fa-save {
@@ -120,10 +163,11 @@ footer {
   z-index: 1;
   position: absolute;
   left: 9%;
-  padding-top: 2%;
+  padding-top: 4%;
+  color: white;
 }
 .btn_save {
-  width: 65%;
+  width: 137%;
   position: relative;
 }
 
@@ -156,8 +200,10 @@ footer {
 ############################################### */
 
 .band {
-  background-color: green;
-  padding: 0 5%;
+  background-color: #C45525;
+  padding: 2% 23%;
+  color: white;
+  font-size: 19px;
 }
 
 .detail-row {
