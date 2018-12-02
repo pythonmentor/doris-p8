@@ -41,7 +41,7 @@ def create_user(request, first_name = None, username = None, password = None):
             password = form.cleaned_data['password1']
             user = authenticate(first_name = first_name, username = username, password = password)
             login(request, user)
-            return HttpResponseRedirect('/accueil/')
+            return HttpResponseRedirect('/')
     else:
         form = UserCreationForm()
     return render(request, 'register.html', {'form': form})
@@ -88,7 +88,7 @@ def connection(request):
 def logout_view(request):
     """  Logout the user """
     logout(request)
-    return HttpResponseRedirect('/accueil/')
+    return HttpResponseRedirect('/')
 
 
 @login_required
