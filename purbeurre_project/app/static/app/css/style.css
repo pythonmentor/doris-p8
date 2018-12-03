@@ -12,6 +12,24 @@ body p {
   font-family: "Scope One", sans-serif;
 }
 
+body a {
+  font-family: "Scope One", sans-serif;
+}
+
+input {
+  font-family: "Scope One", sans-serif;
+}
+
+li {
+  font-family: "Scope One", sans-serif;
+}
+
+label {
+  font-family: "Scope One", sans-serif;
+  font-weight: bold;
+}
+
+
 /* #############################################
 ###### Template REGISTER & CONNECTION #########
 ############################################### */
@@ -22,6 +40,7 @@ body {
 
 .auth-pg {
   height: 100%;
+  background-color: #DE9440;
 }
 
 /* #############################################
@@ -39,6 +58,9 @@ body {
 .contact {
   background-color: #C45525;
 }
+.email-contact{
+  color: white;
+}
 .green-font {
   color: #C45525;
 }
@@ -46,6 +68,10 @@ footer {
   padding: 8px;
   background-color: #345A61;
 }
+.footer-text {
+  font-weight: bold;
+}
+
 /* #############################################
 ###### BARRE DE NAVIGATION            #########
 ############################################### */
@@ -63,8 +89,19 @@ footer {
   width: 8%;
 }
 .carrot {
-  width: 46%;
+  width: 100%;
   padding: 0;
+}
+.navbar-shrink .carrot {
+  display: none;
+}
+.carrot-overlay {
+  display: none;
+}
+.navbar-shrink .carrot-overlay {
+  display: block;
+  top: 0;
+  width: 100%;
 }
 .fa-sign-out-alt {
   font-size: 18px;
@@ -171,6 +208,10 @@ footer {
   position: relative;
 }
 
+.account-body {
+  height: 100%;
+}
+
 /* #############################################
 ###### Template ACCOUNT             #########
 ############################################### */
@@ -188,14 +229,6 @@ footer {
 }
 
 /* #############################################
-###### Template RESULTATS             #########
-############################################### */
-
-.account-body {
-  height: 100%;
-}
-
-/* #############################################
 ###### Template DETAILS               #########
 ############################################### */
 
@@ -208,4 +241,89 @@ footer {
 
 .detail-row {
   margin-bottom: 8%;
+}
+
+/* #############################################
+###### Template FAVORITE              #########
+############################################### */
+
+.header-favorite {
+  background-position: 50%;
+  background-size: cover;
+}
+
+/* #############################################
+###### Template MENTIONS LEGALES     #########
+############################################### */
+
+.fa-heart {
+  color: red;
+}
+
+/*/////////////////////////// DEVICE UNDER 800px /////////////////////////////*/
+@media only screen and (max-width: 800px) {
+/* #############################################
+###### Template RESULTATS             #########
+############################################### */
+
+  .result-item h3 {
+      font-size: 15px;
+  }
+  .btn_save {
+      width: 133%;
+      position: relative;
+      font-size: 12px;
+  }
+  .title-single-pg h2 {
+    font-size: 20px;
+  }
+  .fa-save {
+      font-size: 17px;
+  }
+
+/* #############################################
+###### BARRE DE NAVIGATION            #########
+############################################### */
+
+  .bar_nav .form-control {
+      width: 70%;
+  }
+  .show .carrot {
+    display: none;
+  }
+  .carrot-overlay {
+    display: none;
+  }
+  .show .carrot-overlay {
+    display: block;
+    width: 120%;
+    float: right;
+  }
+  .account-body h3 {
+      font-size: 15px;
+  }
+
+}
+
+/*/////////////////////////// DEVICE UNDER 500px /////////////////////////////*/
+@media only screen and (max-width: 500px) {
+  body h2 {
+    font-size: 25px;
+  }
+/* #############################################
+###### Template BARRE DE NAVIGATION   #########
+############################################### */
+  .logo_pb {
+      width: 8%;
+  }
+  .bar_nav .form-control {
+    width: 65%;
+  }
+  .carrot-nav {
+    width: 7%;
+  }
+  .show .carrot-overlay {
+    width: 230%;
+  }
+
 }

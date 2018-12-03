@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{% static 'app/css/creative.min.css' %}" >
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans" type="text/css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Scope+One" type="text/css">
+    <link rel="icon" href="{% static 'app/img/favicon.ico' %}">
 
   </head>
 
@@ -55,7 +56,8 @@
             {% if user.is_authenticated %}
             <li class="nav-item carrot-nav">
               <a class="" href="{% url 'search:favorite' %}">
-                <img class="carrot" src="{% static 'app/img/noun_Carrot_29691.svg' %}" alt="mes favoris">
+                <img class="carrot" src="{% static 'app/img/white_carrot.png' %}" alt="mes favoris">
+                <img class="carrot-overlay" src="{% static 'app/img/black_carrot.png' %}" alt="mes favoris">
               </a>
             </li>
             <li class="nav-item">
@@ -83,10 +85,10 @@
         <div class="container text-center">
           <div class="row">
             <div class="col-lg-6 col-xs-6">
-              <a class="" href="{% url 'app:mentions' %}">Mentions légales</a>
+              <a href="{% url 'app:mentions' %}" class="footer-text">Mentions légales</a>
             </div>
             <div class="col-lg-6 col-xs-6">
-              <a class="" href="{% url 'app:index' %}#contact">Contact</a>
+              <a href="{% url 'app:index' %}#contact" class="footer-text">Contact</a>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 {% extends 'app/base.html' %}
 
-{% block header %}
-<div class="jumbotron text-center text-white mini-header">
+{% block header %}{% load static %}
+<div class="jumbotron text-center text-white mini-header header-favorite" style="background-image:url('{% static 'app/img/photo-favorite.jpeg' %}')">
   <img class="img-responsive">
   <div class="container my-auto bg-title">
     <h2>
