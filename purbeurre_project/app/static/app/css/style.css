@@ -28,8 +28,15 @@ label {
   font-family: "Scope One", sans-serif;
   font-weight: bold;
 }
-
-
+.helptext {
+  font-family: "Scope One", sans-serif;
+}
+.main-container {
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+}
 /* #############################################
 ###### Template REGISTER & CONNECTION #########
 ############################################### */
@@ -62,18 +69,21 @@ body {
   color: white;
 }
 .green-font {
-  color: #C45525;
+  color: #345A61;
 }
 footer {
   padding: 8px;
   background-color: #345A61;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 .footer-text {
   font-weight: bold;
 }
 
 /* #############################################
-###### BARRE DE NAVIGATION            #########
+######  Template NAVIGATION BAR       #########
 ############################################### */
 .bar_nav {
   margin-left: 58% !important;
@@ -109,7 +119,7 @@ footer {
 
 
 /* #############################################
-###### Template RESULTATS             #########
+###### Template RESULTS               #########
 ############################################### */
 
 .mini-header {
@@ -253,7 +263,7 @@ footer {
 }
 
 /* #############################################
-###### Template MENTIONS LEGALES     #########
+###### Template LEGAL  MENTIONS      #########
 ############################################### */
 
 .fa-heart {
@@ -263,7 +273,7 @@ footer {
 /*/////////////////////////// DEVICE UNDER 800px /////////////////////////////*/
 @media only screen and (max-width: 800px) {
 /* #############################################
-###### Template RESULTATS             #########
+###### Template RESULTS               #########
 ############################################### */
 
   .result-item h3 {
@@ -282,11 +292,14 @@ footer {
   }
 
 /* #############################################
-###### BARRE DE NAVIGATION            #########
+###### Template NAVIGATION BAR        #########
 ############################################### */
 
-  .bar_nav .form-control {
+  /* .bar_nav .form-control {
       width: 70%;
+  } */
+  .search-nav {
+    display: none;
   }
   .show .carrot {
     display: none;
@@ -302,17 +315,28 @@ footer {
   .account-body h3 {
       font-size: 15px;
   }
+  .log-out-nav {
+    padding-left: 1%;
+  }
 
 }
 
 /*/////////////////////////// DEVICE UNDER 500px /////////////////////////////*/
 @media only screen and (max-width: 500px) {
-  body h2 {
-    font-size: 25px;
+  body h1 {
+    font-size: 30px;
   }
+  body h2 {
+    font-size: 23px;
+  }
+  body h3 {
+    font-size: 20px;
+  }
+
 /* #############################################
-###### Template BARRE DE NAVIGATION   #########
+###### Template NAVIGATION BAR        #########
 ############################################### */
+
   .logo_pb {
       width: 8%;
   }
@@ -323,7 +347,38 @@ footer {
     width: 7%;
   }
   .show .carrot-overlay {
-    width: 230%;
+    width: 206%;
+    float: left;
+  }
+  .log-out-nav {
+    padding-left: 3%;
   }
 
+}
+
+/*/////////////////////////// DEVICE UNDER 400px /////////////////////////////*/
+@media only screen and (max-width: 400px) {
+  body p {
+    font-size: 15px;
+  }
+  li {
+    font-size: 15px;
+  }
+  /* #############################################
+  ###### Template ACCOUNT               #########
+  ############################################### */
+  .email-account {
+      margin: 0 15% 0 15%;
+  }
+  .mini-header {
+    margin-top: 5em !important;
+  }
+  /* #############################################
+  ###### Template NAVIGATION BAR        #########
+  ############################################### */
+
+  .show .carrot-overlay {
+    width: 235%;
+    float: left;
+  }
 }

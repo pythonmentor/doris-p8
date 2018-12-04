@@ -22,7 +22,7 @@
             {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" value="Se connecter" />
-            <a href="{% url 'users:registration' %}">Vous n'avez pas encore de compte ? Créez-le !</a>
+            <a class="green-font" href="{% url 'users:registration' %}">Vous n'avez pas encore de compte ? Créez-le !</a>
         </form>
         {% endif %}
       </div>
