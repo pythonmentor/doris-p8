@@ -50,11 +50,22 @@ body {
   background-color: #DE9440;
 }
 
+.button-connect {
+  background-color: #345A61;
+  color: white;
+  font-size: 13px !important;
+}
+
 /* #############################################
 ###### Template ACCUEIL/INDEX         #########
 ############################################### */
 .searchbox {
   display: contents;
+}
+.button-form {
+  background-color: #345A61;
+  color: white;
+  font-size: 15px !important;
 }
 .colette {
   width: 46%;
@@ -114,7 +125,7 @@ footer {
   width: 100%;
 }
 .fa-sign-out-alt {
-  font-size: 18px;
+  font-size: 22px;
 }
 
 
@@ -268,6 +279,17 @@ footer {
 
 .fa-heart {
   color: red;
+}
+
+/*/////////////////////////// DEVICE UNDER 1024px /////////////////////////////*/
+@media only screen and (max-width: 1024px) {
+/* #############################################
+###### Template NAVIGATION BAR        #########
+############################################### */
+
+  .carrot-nav {
+    width: 12%;
+  }
 }
 
 /*/////////////////////////// DEVICE UNDER 800px /////////////////////////////*/

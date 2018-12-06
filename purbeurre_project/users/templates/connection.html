@@ -21,7 +21,7 @@
         <form method="post" action=".">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="Se connecter" />
+            <input type="submit" class="btn btn-sm btn-submit button-connect" value="Se connecter" />
             <a class="green-font" href="{% url 'users:registration' %}">Vous n'avez pas encore de compte ? Créez-le !</a>
         </form>
         {% endif %}
