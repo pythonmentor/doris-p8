@@ -89,9 +89,7 @@ footer {
   bottom: 0;
   width: 100%;
 }
-.footer-text {
-  font-weight: bold;
-}
+
 
 /* #############################################
 ######  Template NAVIGATION BAR       #########
@@ -294,6 +292,9 @@ footer {
 }
 .fa-cookie-bite {
   color: #DE9440;
+}
+.link-error {
+  color: white;
 }
 
 /*/////////////////////////// DEVICE UNDER 1024px /////////////////////////////*/
