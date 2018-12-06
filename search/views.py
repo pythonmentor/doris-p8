@@ -28,7 +28,7 @@ def search_function(request):
     #get healthy products from the same category than the unhealthy product selected
     if request.method == 'POST':
         choice = request.POST.get('txtSearch')
-        if status_code == 500:
+        if choice.is_server_error():
             redirect_no_product = no_product()
         else:
             for item in Product.objects.filter(name_prod=choice):
