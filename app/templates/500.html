@@ -1,7 +1,7 @@
 {% extends 'app/base.html' %}
 
 {% block corps %}
-  <section class="single-pg auth-pg">
+  <section class="error-pg">
    <div class="container my-auto">
      <div class="row">
        <div class="col-lg-8 mx-auto">
@@ -9,9 +9,9 @@
            <strong>Oups ! Une erreur s'est produite</strong>
          </h1>
          <hr>
-         <p>
-          Retournez sur la page d'accueil 
-         </p>
+         <a href="{% url 'app:index' %}">
+          Retournez sur la page d'accueil
+         </a>
        </div>
        <div class="col-lg-10 mx-auto">
        </div>

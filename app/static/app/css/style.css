@@ -281,6 +281,21 @@ footer {
   color: red;
 }
 
+/* #############################################
+###### Template 404/500/NO PRODUCT      #########
+############################################### */
+
+.error-pg {
+  height: 100%;
+  background-color: #C45525 !important;
+}
+.fa-cookie {
+  color: #DE9440;
+}
+.fa-cookie-bite {
+  color: #DE9440;
+}
+
 /*/////////////////////////// DEVICE UNDER 1024px /////////////////////////////*/
 @media only screen and (max-width: 1024px) {
 /* #############################################

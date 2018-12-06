@@ -28,41 +28,44 @@ def search_function(request):
     #get healthy products from the same category than the unhealthy product selected
     if request.method == 'POST':
         choice = request.POST.get('txtSearch')
-        for item in Product.objects.filter(name_prod=choice):
-            cat = item.category
+        if choice = 0:
+            redirect_no_product = no_product()
+        else:
+            for item in Product.objects.filter(name_prod=choice):
+                cat = item.category
 
-        healthy_prod = Product.objects.filter(
-            category = cat, nutrition_grade__in = ('a','b','c')).order_by(
-            'nutrition_grade'
-            )[:6]
+            healthy_prod = Product.objects.filter(
+                category = cat, nutrition_grade__in = ('a','b','c')).order_by(
+                'nutrition_grade'
+                )[:6]
 
-        #create variable with unhealthy products info to render in the template
-        title = "[ Résultats pour la recherche: %s ]"%choice
-        choice_image = item.image
-        choice_name = item.name_prod
-        choice_id = item.id
-        products = []
+            #create variable with unhealthy products info to render in the template
+            title = "[ Résultats pour la recherche: %s ]"%choice
+            choice_image = item.image
+            choice_name = item.name_prod
+            choice_id = item.id
+            products = []
 
-        #create variable with healthy products info to render in the template
-        for item in healthy_prod:
-            product = {
-                'name': item.name_prod,
-                'grade': item.nutrition_grade,
-                'image': item.image,
-                'id': item.id
+            #create variable with healthy products info to render in the template
+            for item in healthy_prod:
+                product = {
+                    'name': item.name_prod,
+                    'grade': item.nutrition_grade,
+                    'image': item.image,
+                    'id': item.id
+                }
+                products.append(product)
+
+            #render all the information in the template
+            results = {
+                'title': title,
+                'choice_id': choice_id,
+                'choice_name': choice_name,
+                'choice_image': choice_image,
+                'products': products
             }
-            products.append(product)
 
-        #render all the information in the template
-        results = {
-            'title': title,
-            'choice_id': choice_id,
-            'choice_name': choice_name,
-            'choice_image': choice_image,
-            'products': products
-        }
-
-        return render(request, 'search/search.html', results)
+            return render(request, 'search/search.html', results)
 
 
 def display_details(request, id_healthy):
@@ -86,6 +89,12 @@ def display_details(request, id_healthy):
 
         return render(request, 'search/details.html', results)
 
+def no_product(request):
+    """ Get this template when no product is found """
+    if request.method == 'POST':
+        template = loader.get_template('search/no-product.html')
+
+        return HttpResponse(template.render(request=request))
 
 @login_required
 def save_product(request):
