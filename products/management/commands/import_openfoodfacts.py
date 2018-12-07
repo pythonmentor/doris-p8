@@ -84,4 +84,4 @@ class Command(BaseCommand):
 
                 products = response.json()
 
-                self.import_product(products, cat) #pour interagir avec le terminal et débuguer pendant que je crée les méthodes
+                self.import_product(products, cat) 

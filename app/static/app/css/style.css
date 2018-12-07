@@ -325,15 +325,15 @@ footer {
       font-size: 15px;
   }
   .btn_save {
-      width: 133%;
+      width: 134%;
       position: relative;
-      font-size: 12px;
+      font-size: 13px;
   }
   .title-single-pg h2 {
     font-size: 20px;
   }
   .fa-save {
-      font-size: 17px;
+      font-size: 18px;
   }
 
 /* #############################################
@@ -399,6 +399,17 @@ footer {
     padding-left: 3%;
   }
 
+}
+
+/* #############################################
+###### Template RESULTS               #########
+############################################### */
+
+.btn_save {
+    font-size: 15px;
+}
+.fa-save {
+    font-size: 19px;
 }
 
 /*/////////////////////////// DEVICE UNDER 400px /////////////////////////////*/
