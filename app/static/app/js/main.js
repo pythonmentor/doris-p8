@@ -16,7 +16,7 @@ jQuery(document).ready(function() {
           success: function(data) {
             console.log('success');
             if (data.validation === "save") {
-                btn_save.removeClass("btn-primary").addClass("btn-success");
+                btn_save.removeClass("btn-results").addClass("btn-success");
                 btn_save.html('Sauvegardé !');
                 $.notify("Et un produit sain sauvegardé ! Continuez, vous êtes sur la bonne voie", "success"
                 );
@@ -31,8 +31,10 @@ jQuery(document).ready(function() {
 
           },
           error: function(data) {
-            alert("error: " + data.status + " : erreur dans l'application, veuillez effectuer une nouvelle recherche");
-            }
+            $.notify("Créez un compte dès maintenant pour enregistrer les produits sains qui vous plaisent,", "info"
+            );
+            console.log('no account');
+          }
         });
     });
 
