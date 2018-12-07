@@ -60,8 +60,10 @@ body {
 ###### Template ACCUEIL/INDEX         #########
 ############################################### */
 
-.title-background {
+.title-background strong {
   background-color: rgba(196, 85, 37, 0.9);
+}
+.title-background {
   line-height: 1.35;
 }
 .searchbox {
