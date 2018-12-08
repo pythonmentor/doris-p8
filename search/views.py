@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 def search_function(request):
     """ Get the user input of products and search unhealthy propositions in
      the database """
-    #show unhealthy product and return a json for autocomplete with jquery UI
+    # show unhealthy product and return a json for autocomplete with jquery UI
     if request.method == 'GET':
         query = request.GET.get('term', '')
         unhealthy_prod = Product.objects.filter(
@@ -25,7 +25,7 @@ def search_function(request):
 
         return HttpResponse(data, mimetype)
 
-    #get healthy products from the same category than the unhealthy product selected
+    # get healthy products from the same category than the unhealthy product selected
     if request.method == 'POST':
         choice = request.POST.get('txtSearch')
         for item in Product.objects.filter(name_prod=choice):
@@ -36,14 +36,14 @@ def search_function(request):
             'nutrition_grade'
             )[:6]
 
-        #create variable with unhealthy products info to render in the template
+        # create variable with unhealthy products info to render in the template
         title = "[ Résultats pour la recherche: %s ]"%choice
         choice_image = item.image
         choice_name = item.name_prod
         choice_id = item.id
         products = []
 
-        #create variable with healthy products info to render in the template
+        # create variable with healthy products info to render in the template
         for item in healthy_prod:
             product = {
                 'name': item.name_prod,
@@ -53,7 +53,7 @@ def search_function(request):
             }
             products.append(product)
 
-        #render all the information in the template
+        # render all the information in the template
         results = {
             'title': title,
             'choice_id': choice_id,
@@ -72,7 +72,7 @@ def display_details(request, id_healthy):
         details = []
         for item in Product.objects.filter(id=id_healthy):
             details_list = {
-                'name' : item.name_prod,
+                'name': item.name_prod,
                 'image': item.image,
                 'grade': item.nutrition_grade,
                 'rep': item.rep_nutritionnel,
@@ -81,7 +81,7 @@ def display_details(request, id_healthy):
             details.append(details_list)
 
             results = {
-                'details' : details
+                'details': details
             }
 
         return render(request, 'search/details.html', results)
@@ -90,7 +90,7 @@ def display_details(request, id_healthy):
 @login_required
 def save_product(request):
     """ Save favorite products and their substitutes through Search page"""
-    #get the id of the healthy product chosen by the user and the unhealthy product and save it in Favorite table
+    # get the id of the healthy product chosen by the user and the unhealthy product and save it in Favorite table
     if request.method == 'POST':
         id_favorite = request.POST.get('id_healthy')
         unhealthy_choice = request.POST.get('id_unhealthy')
@@ -102,7 +102,7 @@ def save_product(request):
 
         if favorite == True:
             save_event = {
-                "validation" : "exists",
+                "validation": "exists",
             }
 
         elif favorite == False:
@@ -111,9 +111,9 @@ def save_product(request):
                 substitute_id = id_favorite,
                 user = request.user)
             favorite.save()
-            #render the information to jQuery for the button event
+            # render the information to jQuery for the button event
             save_event = {
-                "validation" : "save",
+                "validation": "save",
             }
 
         return HttpResponse(json.dumps(save_event), content_type="application/json")
@@ -122,8 +122,8 @@ def save_product(request):
 @login_required
 def remove_product(request):
     """ Delete favorite products from database through Favorite page """
-    #get the id of the healthy product chosen by the user and remoce it from database
-    #créer la vue Remove en mettant en gabarit les id des produits healthy et unhealthy
+    # get the id of the healthy product chosen by the user and remoce it from database
+    # créer la vue Remove en mettant en gabarit les id des produits healthy et unhealthy
     if request.method == 'POST':
         delete_id_favorite = request.POST.get('delete_favorite')
         delete_id_unhealthy = request.POST.get('delete_unhealthy')
@@ -137,26 +137,26 @@ def remove_product(request):
             product_id = delete_id_unhealthy,
             user = request.user).delete()
 
-        #render the information to jQuery for the button event
+        # render the information to jQuery for the button event
         remove_event = {
-            "validation" : "delete",
+            "validation": "delete",
         }
 
         return HttpResponse(json.dumps(remove_event), content_type="application/json")
-        #renvoyer la vue en guise de réponse
+        # renvoyer la vue en guise de réponse
 
 
 def favorite_display(request):
     """ Display the favorite products for each user through Favorite page """
     if request.method == 'GET':
-        #get the information to display from Product table filtered by user
+        # get the information to display from Product table filtered by user
         user = request.user
         get_favorite = Product.objects.filter(
             users = user).order_by(
             'nutrition_grade'
             )
         favorites = []
-        #get unhealthy product id from Favorite table, filtered with the substitute id
+        # get unhealthy product id from Favorite table, filtered with the substitute id
         for fav in get_favorite:
             get_id_unhealthy = Favorite.objects.filter(
                 user = user, substitute_id = fav.id).order_by(

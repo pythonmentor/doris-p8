@@ -75,9 +75,10 @@ def connection(request):
             username = form.cleaned_data['email']
             password = form.cleaned_data['password']
             user = authenticate(username=username, password=password)
-            if user:  # Si l'objet renvoyé n'est pas None
-                login(request, user)  # nous connectons l'utilisateur
-            else: # sinon une erreur sera affichée
+            # if the object sent isn't None
+            if user:
+                login(request, user)
+            else:
                 error = True
     else:
         form = ConnectionForm()
@@ -102,13 +103,13 @@ def myaccount(request):
             id_people = people.id
             for item in User.objects.filter(id=id_people):
                 users_info = {
-                    'name' : item.first_name,
-                    'email' : item.username
+                    'name': item.first_name,
+                    'email': item.username
                 }
                 accounts.append(users_info)
 
                 results = {
-                    'accounts' : accounts
+                    'accounts': accounts
                 }
 
             return render(request, 'account.html', results)

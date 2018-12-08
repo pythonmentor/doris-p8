@@ -9,14 +9,14 @@ help = 'Import data from openfoodfacts API to the app database'
 
 
 cats_to_add = [
-"biscuits et gâteaux", "pizzas", "pâtes à tartiner aux noisettes", "glaces",
-"chocolats", "sodas", "bonbons", "chips", "céréales", "fromages", "confitures",
-"jus de fruits", "desserts lactés", "soupes", "lasagnes", "miels",
-"galettes de céréales", "rillettes", "bières", "hummus", "brioches", "sandwichs"
+    "biscuits et gâteaux", "pizzas", "pâtes à tartiner aux noisettes", "glaces",
+    "chocolats", "sodas", "bonbons", "chips", "céréales", "fromages", "confitures",
+    "jus de fruits", "desserts lactés", "soupes", "lasagnes", "miels",
+    "galettes de céréales", "rillettes", "bières", "hummus", "brioches", "sandwichs"
 ]
 
 grades = [
-"a", "b", "d", "e"
+    "a", "b", "d", "e"
 ]
 
 criteria = {
@@ -31,11 +31,13 @@ criteria = {
 
 url = "https://fr.openfoodfacts.org/cgi/search.pl"
 
+
 class Command(BaseCommand):
     """ Import openfoodfacts datas """
 
     def import_category(self, category):
         """ Get the categories from my predefined list """
+
         cat,created = Category.objects.get_or_create(
         name_cat=category
         )
@@ -84,4 +86,4 @@ class Command(BaseCommand):
 
                 products = response.json()
 
-                self.import_product(products, cat) 
+                self.import_product(products, cat)
