@@ -63,8 +63,6 @@ class TestSearchView(TestCase):
 
         self.assertEqual(my_product, 'test product')
 
- #test query js avec selenium
-
 
  #test search healthy product
     def test_search_healthy(self):

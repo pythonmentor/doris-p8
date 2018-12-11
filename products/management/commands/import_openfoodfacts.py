@@ -67,7 +67,6 @@ class Command(BaseCommand):
                     )
                     if created:
                         prod.save()
-                        print('bien joué !')
                         display_format_prod = "Product, {} , a bien été enregistré"
                         print(display_format_prod.format(name_prod))
 
